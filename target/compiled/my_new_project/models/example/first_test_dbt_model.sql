@@ -1,0 +1,3 @@
+TEST_DBT_ORDERS as (
+    SELECT * FROM Analytics.TPCH_SF1.ORDERS
+)
