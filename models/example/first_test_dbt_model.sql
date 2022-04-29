@@ -1,3 +1,8 @@
-TEST_DBT_ORDERS as (
-    SELECT * FROM Analytics.TPCH_SF1.ORDERS
-)
+
+{{
+    config(
+        materialized = 'table'
+    )
+}}
+
+SELECT * FROM SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.ORDERS
