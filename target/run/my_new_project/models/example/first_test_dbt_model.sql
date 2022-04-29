@@ -1,8 +1,9 @@
-
-
-      create or replace transient table TEST_DBT_DB.dbt_mpanigrahi.first_test_dbt_model  as
-      (
-
-SELECT * FROM SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.ORDERS
-      );
+begin;
     
+
+        insert into TEST_DBT_DB.dbt_mpanigrahi.first_test_dbt_model ("O_ORDERKEY", "O_CUSTKEY", "O_ORDERSTATUS", "O_TOTALPRICE", "O_ORDERDATE", "O_ORDERPRIORITY", "O_CLERK", "O_SHIPPRIORITY", "O_COMMENT")
+        (
+            select "O_ORDERKEY", "O_CUSTKEY", "O_ORDERSTATUS", "O_TOTALPRICE", "O_ORDERDATE", "O_ORDERPRIORITY", "O_CLERK", "O_SHIPPRIORITY", "O_COMMENT"
+            from TEST_DBT_DB.dbt_mpanigrahi.first_test_dbt_model__dbt_tmp
+        );
+    commit;
